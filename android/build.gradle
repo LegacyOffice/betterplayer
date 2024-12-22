@@ -2,21 +2,21 @@ group 'com.jhomlala.better_player.better_player'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.exoPlayerVersion = "2.17.1"
-    ext.lifecycleVersion = "2.4.0-beta01"
-    ext.annotationVersion = "1.2.0"
-    ext.workVersion = "2.7.0"
-    ext.coreVersion = "1.6.0"
-    ext.gradleVersion = "7.0.2"
-    ext.kotlinVersion = "1.5.31"
-
+    ext {
+        exoPlayerVersion = "2.17.1"
+        lifecycleVersion = "2.4.0"
+        annotationVersion = "1.2.0"
+        workVersion = "2.7.0"
+        coreVersion = "1.6.0"
+        gradleVersion = "8.2.0"  // Updated
+        kotlinVersion = "1.9.22"  // Updated
+    }
     repositories {
         google()
         mavenCentral()
     }
-
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.0'
+        classpath 'com.android.tools.build:gradle:8.2.0'  // Updated
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
     }
 }
@@ -32,25 +32,27 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 31
-
+    namespace 'com.jhomlala.better_player'  // Added
+    compileSdkVersion 34  // Updated
+    
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
+    
     kotlinOptions {
         jvmTarget = '1.8'
     }
-
+    
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
-
+    
     defaultConfig {
         minSdkVersion 16
+        targetSdkVersion 34  // Added
     }
-
+    
     dependencies {
         implementation "com.google.android.exoplayer:exoplayer-core:$exoPlayerVersion"
         implementation "com.google.android.exoplayer:exoplayer-hls:$exoPlayerVersion"
