@@ -8,15 +8,15 @@ buildscript {
         annotationVersion = "1.2.0"
         workVersion = "2.7.0"
         coreVersion = "1.6.0"
-        gradleVersion = "8.2.0"  // Updated
-        kotlinVersion = "1.9.22"  // Updated
+        gradleVersion = "7.3.0"  // Lowered for better compatibility
+        kotlinVersion = "1.7.10"  // Lowered for better compatibility
     }
     repositories {
         google()
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.2.0'  // Updated
+        classpath 'com.android.tools.build:gradle:7.3.0'  // Lowered
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
     }
 }
@@ -32,8 +32,8 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    namespace 'com.jhomlala.better_player'  // Added
-    compileSdkVersion 34  // Updated
+    namespace 'com.jhomlala.better_player'
+    compileSdkVersion 34
     
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -50,24 +50,21 @@ android {
     
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 34  // Added
-    }
-    
-    dependencies {
-        implementation "com.google.android.exoplayer:exoplayer-core:$exoPlayerVersion"
-        implementation "com.google.android.exoplayer:exoplayer-hls:$exoPlayerVersion"
-        implementation "com.google.android.exoplayer:exoplayer-dash:$exoPlayerVersion"
-        implementation "com.google.android.exoplayer:exoplayer-smoothstreaming:$exoPlayerVersion"
-        implementation "com.google.android.exoplayer:exoplayer-ui:$exoPlayerVersion"
-        implementation "com.google.android.exoplayer:extension-mediasession:$exoPlayerVersion"
-        implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
-        implementation "androidx.lifecycle:lifecycle-common:$lifecycleVersion"
-        implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion"
-        implementation "androidx.annotation:annotation:$annotationVersion"
-        implementation "androidx.work:work-runtime:$workVersion"
+        targetSdkVersion 34
     }
 }
 
 dependencies {
+    implementation "com.google.android.exoplayer:exoplayer-core:$exoPlayerVersion"
+    implementation "com.google.android.exoplayer:exoplayer-hls:$exoPlayerVersion"
+    implementation "com.google.android.exoplayer:exoplayer-dash:$exoPlayerVersion"
+    implementation "com.google.android.exoplayer:exoplayer-smoothstreaming:$exoPlayerVersion"
+    implementation "com.google.android.exoplayer:exoplayer-ui:$exoPlayerVersion"
+    implementation "com.google.android.exoplayer:extension-mediasession:$exoPlayerVersion"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-common:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion"
+    implementation "androidx.annotation:annotation:$annotationVersion"
+    implementation "androidx.work:work-runtime:$workVersion"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
 }
